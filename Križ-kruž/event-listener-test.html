@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .angry-buttony {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="buttony">Noo...</button>
+    <button class="buttony">do ir</button>
+
+    <script>
+      const buttony = document.querySelectorAll('.buttony');
+
+      let bass = false;
+
+      function addEvent() {
+        buttony.forEach((button) => {
+          function change() {
+            if (bass) {
+              button.removeEventListener('click', change);
+            } else {
+              button.classList.replace('buttony', 'angry-buttony');
+              console.log(bass);
+            }
+            
+          }
+          button.addEventListener('click', change);
+        });
+      }
+
+      addEvent();
+
+      bass=true;
+    </script>
+  </body>
+</html>
