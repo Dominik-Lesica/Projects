@@ -9,9 +9,10 @@ body, html{
  place-items: center;
 }
 
-.img-wrapper{
+.picture-slide{
   width: fit-content;
   position: relative;
+  width: 80%;
 }
 
 .img{
