@@ -1,0 +1,36 @@
+body, html{
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.main{
+ position: relative;
+ display: grid;
+ place-items: center;
+}
+
+.img-wrapper{
+  width: fit-content;
+  position: relative;
+}
+
+.img{
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.back-icon,
+.next-icon{
+  position: absolute;
+  width: 70px;
+  top: 50%;
+  translate: 0 -50%;
+  cursor: pointer;
+}
+.next-icon{
+  right: -40px;
+}
+.back-icon{
+  left: -40px;
+}
