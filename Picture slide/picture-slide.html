@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="picture-slide.css">
+    <link rel="preload" href="img/img0.jpg" as="image">
+    <link rel="preload" href="img/img1.jpg" as="image">
+    <link rel="preload" href="img/img2.jpg" as="image">
+    <link rel="preload" href="img/img3.jpg" as="image">
+    <link rel="preload" href="img/img4.jpg" as="image">
+  </head>
+  <body>
+    <main class="main">
+      <div class="picture-slide">
+        <img src="img/back.png" class="back-icon">
+        <div class="hero-slide">
+          <div class="image-wrapper">
+            <img class="img" style="background-image: url(img/img4.jpg);">
+            <img class="img" style="background-image: url(img/img0.jpg);">
+            <img class="img" style="background-image: url(img/img1.jpg);">
+          </div>
+        </div>
+        <img src="img/next.png" class="next-icon">
+      </div>
+    </main>
+    <script src="picture-slide.js"></script>
+  </body>
+</html>

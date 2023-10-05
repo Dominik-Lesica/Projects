@@ -1,0 +1,81 @@
+body, html{
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+}
+
+.main{
+ position: relative;
+ display: grid;
+ place-items: center;
+}
+
+.picture-slide{
+  width: fit-content;
+  position: relative;
+  width: 80%;
+}
+
+.hero-slide{
+  height: 600px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.image-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.img{
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  background-size: cover;
+  flex: 0 0 auto;
+  
+}
+
+.back-icon,
+.next-icon{
+  position: absolute;
+  width: 70px;
+  top: 50%;
+  translate: 0 -50%;
+  cursor: pointer;
+}
+.next-icon{
+  right: -40px;
+  z-index: 4;
+}
+.back-icon{
+  left: -40px;
+  z-index: 4;
+}
+
+@keyframes slideRight{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(100%);
+  }
+}
+@keyframes slideLeft{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+}
+
+.slide-next{
+  animation: slideLeft 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-back{
+  animation: slideRight 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
