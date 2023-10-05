@@ -1,7 +1,7 @@
 body, html{
   min-height: 100%;
   min-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .main{
@@ -21,40 +21,16 @@ body, html{
   flex-direction: row;
   overflow-x: hidden;
   justify-content: center;
-  transition: transform 0.5s ease-in-out;
-  gap: 0;
 }
 
 .img{
   height: 600px;
   width: 100%;
   object-fit: cover;
+  object-position: center;
   background-size: cover;
   flex: 0 0 auto;
   
-}
-
-.img0{
-  background-image: url(img/img0.jpg);
-}
-.img1{
-  background-image: url(img/img1.jpg);
-}
-.img2{
-  background-image: url(img/img2.jpg);
-}
-.img3{
-  background-image: url(img/img3.jpg);
-}
-.img4{
-  background-image: url(img/img4.jpg);
-}
-
-.slide-next{
-  animation: slideLeft 1.5s;
-}
-.slide-back{
-  animation: slideRight 1.5s;
 }
 
 .back-icon,
@@ -89,5 +65,12 @@ body, html{
   to{
     transform: translateX(-100%);
   }
+}
+
+.slide-next{
+  animation: slideLeft 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-back{
+  animation: slideRight 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

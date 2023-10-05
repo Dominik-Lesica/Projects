@@ -3,12 +3,11 @@ const nextButton = document.querySelector('.next-icon');
 const imageWrapper = document.querySelector('.image-wrapper');
 const body = document.querySelector('body');
 
-const imgUrls = ['img0', 'img1', 'img2', 'img3', 'img4'];
+const imgUrls = ['img0', 'img1', 'img2', 'img3', 'img4', 'img5'];
 
 let backImage = 0;
 let currentImage = 0;
 let nextImage = 0;
-
 let animationActive = false;
 
 function flipThroughUrls(offset) {
@@ -27,13 +26,14 @@ function addAnimation(direction) {
 function generateImages() {
   body.addEventListener('animationend', () => {
     imageWrapper.innerHTML = `
-    <img class="img ${imgUrls[backImage]}">
-    <img class="img ${imgUrls[currentImage]}">
-    <img class="img ${imgUrls[nextImage]}">
+    <img class="img" style="background-image: url(img/${imgUrls[backImage]}.jpg);">
+    <img class="img" style="background-image: url(img/${imgUrls[currentImage]}.jpg);">
+    <img class="img" style="background-image: url(img/${imgUrls[nextImage]}.jpg);">
   `;
   animationActive = false;
   }); 
 }
+
 nextButton.addEventListener('click', () => {
   if(animationActive) return;
   addAnimation('next');
@@ -48,7 +48,3 @@ backButton.addEventListener('click', () => {
   flipThroughUrls(-1);
   generateImages();
 });
-
-
-
-
