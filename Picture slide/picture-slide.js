@@ -9,31 +9,16 @@ let backImage = 0;
 let currentImage = 0;
 let nextImage = 0;
 
-function flipThroughUrls(direction) {
-  if(direction === 'back'){
-    currentImage--;
-  } else if(direction === 'next'){
-    currentImage++;
-  }
+let animationActive = false;
 
-  if(currentImage > imgUrls.length - 1){
-    currentImage = 0;
-  } else if(currentImage < 0){
-    currentImage = imgUrls.length - 1;
-  }
-
-  backImage = currentImage - 1;
-  if(backImage < 0){
-    backImage = imgUrls.length - 1;
-  }
-
-  nextImage = currentImage + 1;
-  if(nextImage > imgUrls.length - 1){
-    nextImage = 0;
-  }
+function flipThroughUrls(offset) {
+  currentImage = (currentImage + offset + imgUrls.length) % imgUrls.length;
+  nextImage = (currentImage + 1) % imgUrls.length;
+  backImage = (currentImage - 1 + imgUrls.length) % imgUrls.length;
 }
 
 function addAnimation(direction) {
+  animationActive = true;
   document.querySelectorAll('.img').forEach((image) => {
     image.classList.add(`slide-${direction}`);
   });
@@ -46,28 +31,22 @@ function generateImages() {
     <img class="img ${imgUrls[currentImage]}">
     <img class="img ${imgUrls[nextImage]}">
   `;
-  timeoutActive = false;
+  animationActive = false;
   }); 
 }
-
-let timeoutActive = false;
 nextButton.addEventListener('click', () => {
-  if(timeoutActive) return;
-  timeoutId = setTimeout(() => {
-    timeoutActive = true;
-    addAnimation('next');
-    flipThroughUrls('next');
-    generateImages();
-  }, 50);
+  if(animationActive) return;
+  addAnimation('next');
+  flipThroughUrls(1);
+  generateImages();
+
 });
+
 backButton.addEventListener('click', () => {
-  if(timeoutActive) return;
-  timeoutId = setTimeout(() => {
-    timeoutActive = true;
-    addAnimation('back');
-    flipThroughUrls('back');
-    generateImages();
-  }, 50);
+  if(animationActive) return;
+  addAnimation('back');
+  flipThroughUrls(-1);
+  generateImages();
 });
 
 

@@ -18,9 +18,11 @@ body, html{
 
 .image-wrapper{
   display: flex;
-  overflow: hidden;
+  flex-direction: row;
+  overflow-x: hidden;
   justify-content: center;
   transition: transform 0.5s ease-in-out;
+  gap: 0;
 }
 
 .img{
@@ -29,6 +31,7 @@ body, html{
   object-fit: cover;
   background-size: cover;
   flex: 0 0 auto;
+  
 }
 
 .img0{
@@ -48,10 +51,10 @@ body, html{
 }
 
 .slide-next{
-  animation: slideLeft 1s;
+  animation: slideLeft 1.5s;
 }
 .slide-back{
-  animation: slideRight 1s;
+  animation: slideRight 1.5s;
 }
 
 .back-icon,
