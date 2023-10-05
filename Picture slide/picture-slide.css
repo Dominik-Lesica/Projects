@@ -15,10 +15,23 @@ body, html{
   width: 80%;
 }
 
+.image-wrapper{
+  display: flex;
+  
+  justify-content: center;
+}
+
 .img{
   height: 500px;
   width: 100%;
   object-fit: cover;
+  flex: 0 0 auto;
+}
+.slide-next{
+  animation: slideLeft 1s;
+}
+.slide-back{
+  animation: slideRight 1s;
 }
 
 .back-icon,
@@ -31,7 +44,26 @@ body, html{
 }
 .next-icon{
   right: -40px;
+  z-index: 4;
 }
 .back-icon{
   left: -40px;
+  z-index: 4;
+}
+
+@keyframes slideRight{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(100%);
+  }
+}
+@keyframes slideLeft{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
 }
