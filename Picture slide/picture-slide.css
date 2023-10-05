@@ -22,11 +22,29 @@ body, html{
 }
 
 .img{
-  height: 500px;
+  height: 600px;
   width: 100%;
   object-fit: cover;
+  background-size: cover;
   flex: 0 0 auto;
 }
+
+.img0{
+  background-image: url(img/img0.jpg);
+}
+.img1{
+  background-image: url(img/img1.jpg);
+}
+.img2{
+  background-image: url(img/img2.jpg);
+}
+.img3{
+  background-image: url(img/img3.jpg);
+}
+.img4{
+  background-image: url(img/img4.jpg);
+}
+
 .slide-next{
   animation: slideLeft 1s;
 }
@@ -67,3 +85,4 @@ body, html{
     transform: translateX(-100%);
   }
 }
+
