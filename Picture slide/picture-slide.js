@@ -9,7 +9,6 @@ let backImage = 0;
 let currentImage = 0;
 let nextImage = 0;
 
-
 function flipThroughUrls(direction) {
   if(direction === 'back'){
     currentImage--;
@@ -47,19 +46,28 @@ function generateImages() {
     <img class="img ${imgUrls[currentImage]}">
     <img class="img ${imgUrls[nextImage]}">
   `;
+  timeoutActive = false;
   }); 
 }
 
-
+let timeoutActive = false;
 nextButton.addEventListener('click', () => {
-  addAnimation('next');
-  flipThroughUrls('next');
-  generateImages();
+  if(timeoutActive) return;
+  timeoutId = setTimeout(() => {
+    timeoutActive = true;
+    addAnimation('next');
+    flipThroughUrls('next');
+    generateImages();
+  }, 50);
 });
 backButton.addEventListener('click', () => {
-  addAnimation('back');
-  flipThroughUrls('back');
-  generateImages();
+  if(timeoutActive) return;
+  timeoutId = setTimeout(() => {
+    timeoutActive = true;
+    addAnimation('back');
+    flipThroughUrls('back');
+    generateImages();
+  }, 50);
 });
 
 
