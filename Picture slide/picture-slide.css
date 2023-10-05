@@ -16,10 +16,15 @@ body, html{
   width: 80%;
 }
 
+.hero-slide{
+  height: 600px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .image-wrapper{
   display: flex;
   flex-direction: row;
-  overflow-x: hidden;
   justify-content: center;
 }
 

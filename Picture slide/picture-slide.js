@@ -18,9 +18,7 @@ function flipThroughUrls(offset) {
 
 function addAnimation(direction) {
   animationActive = true;
-  document.querySelectorAll('.img').forEach((image) => {
-    image.classList.add(`slide-${direction}`);
-  });
+  imageWrapper.classList.add(`slide-${direction}`);
 }
 
 function generateImages() {
@@ -30,6 +28,8 @@ function generateImages() {
     <img class="img" style="background-image: url(img/${imgUrls[currentImage]}.jpg);">
     <img class="img" style="background-image: url(img/${imgUrls[nextImage]}.jpg);">
   `;
+  imageWrapper.classList.remove('slide-next');
+  imageWrapper.classList.remove('slide-back');
   animationActive = false;
   }); 
 }
